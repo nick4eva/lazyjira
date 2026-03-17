@@ -6,11 +6,26 @@ Navigate issues, switch projects, read descriptions and comments, all without le
 
 ## Install
 
+### Homebrew (macOS/Linux)
+
+```
+brew tap textfuel/tap
+brew install --HEAD lazyjira
+```
+
+To update:
+
+```
+brew upgrade --fetch-HEAD lazyjira
+```
+
+### Go
+
 ```
 go install github.com/textfuel/lazyjira/cmd/lazyjira@latest
 ```
 
-Or build from source:
+### From source
 
 ```
 git clone https://github.com/textfuel/lazyjira.git
