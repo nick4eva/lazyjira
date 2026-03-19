@@ -18,5 +18,8 @@ config.yml
 *.swp
 *~
 
+# Nix
+/result
+
 # OS
 .DS_Store

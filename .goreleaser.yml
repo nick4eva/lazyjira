@@ -36,5 +36,35 @@ brews:
     test: |
       assert_match "lazyjira", shell_output("#{bin}/lazyjira --version")
 
+nfpms:
+  - package_name: lazyjira
+    maintainer: "textfuel <https://github.com/textfuel>"
+    homepage: "https://github.com/textfuel/lazyjira"
+    description: "Terminal UI for Jira"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+      - apk
+
+aurs:
+  - name: lazyjira-bin
+    homepage: "https://github.com/textfuel/lazyjira"
+    description: "Terminal UI for Jira (prebuilt binary)"
+    license: "MIT"
+    private_key: "{{ .Env.AUR_SSH_PRIVATE_KEY }}"
+    git_url: "ssh://aur@aur.archlinux.org/lazyjira-bin.git"
+    provides:
+      - lazyjira
+    conflicts:
+      - lazyjira
+      - lazyjira-git
+    package: |-
+      install -Dm755 "./lazyjira" "${pkgdir}/usr/bin/lazyjira"
+      install -Dm644 "./LICENSE" "${pkgdir}/usr/share/licenses/lazyjira/LICENSE"
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+
 changelog:
   sort: asc
