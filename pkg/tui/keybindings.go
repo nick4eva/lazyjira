@@ -48,7 +48,7 @@ func (a *App) ContextBindings() []Binding {
 			a.bind(ActURLPicker, "open URL picker"),
 			a.bind(ActCreateBranch, "create branch"),
 			a.bind(ActCloseJQLTab, "close JQL tab"),
-			Binding{"[/]", "switch tab"},
+			Binding{"[]", "switch tab"},
 		)
 
 	case a.side == sideLeft && a.leftFocus == focusProjects:
@@ -72,7 +72,7 @@ func (a *App) ContextBindings() []Binding {
 		bindings = append(bindings,
 			Binding{"j/k", "scroll up/down"},
 			Binding{"ctrl+d/u", "half-page down/up"},
-			Binding{"[/]", "previous/next tab"},
+			Binding{"[]", "previous/next tab"},
 			a.bind(ActFocusLeft, "back to left panel"),
 			a.bind(ActInfoTab, "jump to info tab"),
 			a.bind(ActEditPriority, "change priority"),
@@ -104,18 +104,15 @@ func (a *App) helpBarItems() []components.HelpItem {
 			{Key: "enter", Description: "search"},
 			{Key: "tab", Description: "switch focus"},
 			{Key: "esc", Description: "cancel"},
-			{Key: "j/k", Description: "navigate"},
 		}
 	case a.showHelp:
 		return []components.HelpItem{
-			{Key: "j/k", Description: "navigate"},
 			{Key: "esc", Description: "close"},
 		}
 	case a.diffView.IsVisible():
 		return []components.HelpItem{
 			{Key: "enter", Description: "confirm"},
 			{Key: "esc", Description: "cancel"},
-			{Key: "j/k", Description: "scroll"},
 		}
 	case a.inputModal.IsVisible():
 		items := []components.HelpItem{
@@ -128,7 +125,6 @@ func (a *App) helpBarItems() []components.HelpItem {
 		return items
 	case a.modal.IsVisible() && a.modal.IsChecklist():
 		return []components.HelpItem{
-			{Key: "j/k", Description: "navigate"},
 			{Key: "space", Description: "toggle"},
 			{Key: "/", Description: "search"},
 			{Key: "enter", Description: "confirm"},
@@ -136,7 +132,6 @@ func (a *App) helpBarItems() []components.HelpItem {
 		}
 	case a.modal.IsVisible():
 		return []components.HelpItem{
-			{Key: "j/k", Description: "navigate"},
 			{Key: "/", Description: "search"},
 			{Key: "enter", Description: "select"},
 			{Key: "esc", Description: "cancel"},
@@ -147,7 +142,6 @@ func (a *App) helpBarItems() []components.HelpItem {
 	switch {
 	case a.side == sideLeft && a.leftFocus == focusIssues:
 		items := []components.HelpItem{
-			{Key: "j/k", Description: "navigate"},
 			{Key: km.Keys(ActSelect), Description: "select"},
 		}
 		if a.issuesList.IsJQLTab() {
@@ -164,7 +158,6 @@ func (a *App) helpBarItems() []components.HelpItem {
 		return items
 	case a.side == sideLeft && a.leftFocus == focusProjects:
 		return []components.HelpItem{
-			{Key: "j/k", Description: "navigate"},
 			{Key: km.Keys(ActSelect), Description: "select"},
 			{Key: km.Keys(ActOpen), Description: "preview"},
 			{Key: km.Keys(ActHelp), Description: "help"},
@@ -176,8 +169,7 @@ func (a *App) helpBarItems() []components.HelpItem {
 		}
 	case a.side == sideRight:
 		items := []components.HelpItem{
-			{Key: "j/k", Description: "scroll"},
-			{Key: "[/]", Description: "tabs"},
+			{Key: "[]", Description: "tabs"},
 		}
 		switch a.detailView.ActiveTab() {
 		case views.TabComments:

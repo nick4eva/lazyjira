@@ -67,10 +67,14 @@ func (l *ListBase) KeyNav(key string) bool {
 	case "j", "down":
 		if l.Cursor < l.itemCount-1 {
 			l.Cursor++
+		} else if l.itemCount > 0 {
+			l.Cursor = 0
 		}
 	case "k", "up":
 		if l.Cursor > 0 {
 			l.Cursor--
+		} else if l.itemCount > 0 {
+			l.Cursor = l.itemCount - 1
 		}
 	case "g", "home":
 		l.Cursor = 0

@@ -141,11 +141,21 @@ func (m *Modal) sortChecklist() {
 }
 
 // moveCursor advances cursor by delta, skipping separator items.
+// Wraps around: moving past the end goes to the first item, past the start goes to the last.
 func (m *Modal) moveCursor(delta int) {
+	n := len(m.items)
+	if n == 0 {
+		return
+	}
 	for {
 		next := m.cursor + delta
-		if next < 0 || next >= len(m.items) {
-			return
+		if next < 0 {
+			next = n - 1
+		} else if next >= n {
+			next = 0
+		}
+		if next == m.cursor {
+			return // full loop, all separators
 		}
 		m.cursor = next
 		if !m.items[m.cursor].Separator {

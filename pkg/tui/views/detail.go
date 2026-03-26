@@ -461,14 +461,18 @@ func (d *DetailView) Update(msg tea.Msg) (*DetailView, tea.Cmd) {
 			if count := d.listTabItemCount(); count > 0 {
 				if d.listCursor < count-1 {
 					d.listCursor++
+				} else {
+					d.listCursor = 0
 				}
 			} else {
 				d.scrollY++
 			}
 		case "k", "up":
-			if d.listTabItemCount() > 0 {
+			if count := d.listTabItemCount(); count > 0 {
 				if d.listCursor > 0 {
 					d.listCursor--
+				} else {
+					d.listCursor = count - 1
 				}
 			} else if d.scrollY > 0 {
 				d.scrollY--
