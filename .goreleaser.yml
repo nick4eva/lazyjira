@@ -24,12 +24,10 @@ archives:
         formats:
           - zip
 
-homebrew_casks:
+brews:
   - name: lazyjira
     description: "Terminal UI for Jira"
     homepage: "https://github.com/textfuel/lazyjira"
-    binaries:
-      - lazyjira
     repository:
       owner: textfuel
       name: homebrew-tap

@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Fixed
+
+- Homebrew formula not updating since v2.4.0: switched goreleaser from `homebrew_casks` back to `brews`
+
 ## [2.6.1] - 2026-03-29
 
 ### Changed
