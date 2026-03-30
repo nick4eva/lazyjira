@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Fixed
+
+- Homebrew: switched back from Cask to Formula — Cask quarantines unsigned CLI binaries, causing macOS Gatekeeper to block execution
+
 ## [2.6.3] - 2026-03-30
 
 ### Fixed
