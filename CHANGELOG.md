@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [2.6.8] - 2026-04-01
+
 ### Fixed
 
 - AUR PKGBUILD: pkgver() now uses git describe for tag-based versioning per Arch Wiki guidelines
@@ -223,7 +225,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Cross-platform: macOS, Linux, Windows
 - Homebrew install via tap
 
-[Unreleased]: https://github.com/textfuel/lazyjira/compare/v2.6.7...HEAD
+[Unreleased]: https://github.com/textfuel/lazyjira/compare/v2.6.8...HEAD
+[2.6.8]: https://github.com/textfuel/lazyjira/compare/v2.6.7...v2.6.8
 [2.6.7]: https://github.com/textfuel/lazyjira/compare/v2.6.6...v2.6.7
 [2.6.6]: https://github.com/textfuel/lazyjira/compare/v2.6.5...v2.6.6
 [2.6.5]: https://github.com/textfuel/lazyjira/compare/v2.6.4...v2.6.5
