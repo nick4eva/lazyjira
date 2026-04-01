@@ -198,6 +198,7 @@ func (r *adfRenderer) renderInline(node any) string {
 	switch nodeType {
 	case adfText:
 		text, _ := inline["text"].(string)
+		text = strings.ReplaceAll(text, "\r", "")
 		marks, _ := inline["marks"].([]any)
 		return applyMarks(text, marks)
 
@@ -239,7 +240,7 @@ func (r *adfRenderer) renderInlinePlain(node any) string {
 	switch nodeType {
 	case adfText:
 		text, _ := inline["text"].(string)
-		return text
+		return strings.ReplaceAll(text, "\r", "")
 	case adfMention:
 		if attrs, ok := inline["attrs"].(map[string]any); ok {
 			if text, ok := attrs["text"].(string); ok {
